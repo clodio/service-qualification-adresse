@@ -9,7 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Creative - Start Bootstrap Theme</title>
+    <title>Service de qualification d'adresses</title>
+    <link rel="icon" href="img/favicon.ico" /> 
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -22,8 +23,11 @@
     <!-- Plugin CSS -->
     <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
-    <!-- Theme CSS -->
+    <!-- Theme CSS landing page-->
     <link href="css/creative.min.css" rel="stylesheet">
+
+    <!-- Theme CSS site-->
+    <link href="css/main.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -43,20 +47,20 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Start Bootstrap</a>
+                <a class="navbar-brand page-scroll" href="#page-top">Service qualification adresse</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
+                        <a class="page-scroll" href="#presentation">Présentation</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#qualification_fichier">Qualifier des adresses</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#services">Services</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#portfolio">Portfolio</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
@@ -71,191 +75,219 @@
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-                <h1 id="homeHeading">Your Favorite Source of Free Bootstrap Themes</h1>
+                <h1 id="homeHeading">Service de qualification d'adresses</h1>
                 <hr>
-                <p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>
-                <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+                <p>Envoyez une ou plusieurs adresses,<br/> 
+                Récupérez des adresses qualifiées avec des données complémentaires
+                </p>
+                <a href="#presentation" class="btn btn-primary btn-xl page-scroll">En savoir plus</a>
+                <a href="#qualification_fichier" class="btn btn-primary btn-xl page-scroll">Qualifier des adresses</a>
             </div>
         </div>
     </header>
 
-    <section class="bg-primary" id="about">
+    <section class="bg-primary" id="presentation">
         <div class="container">
+          <div class="row">
+            <div class="col-lg-12 text-center">
+              <h2 class="section-heading">Service de qualification de fichier d'adresse</h2>
+<hr class="light">
+            </div>
+          </div>
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">We've got what you need!</h2>
-                    <hr class="light">
-                    <p class="text-faded">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>
-                    <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">Get Started!</a>
+
+              <div class="col-lg-6 col-md-6 text-center">
+                <!--<div class="portfolio-box">
+                    <iframe class="" width="100%"  src="https://www.youtube.com/embed/Jsh3Ai7USOw" frameborder="0" allowfullscreen height="300"></iframe>
+                </div>-->
+                <a href="#presentation_service" id="presentation_service" target="_blank"><img src="/img/presentation_service.png" alt="Image de présentation" onmouseover="hoverPresentation(this);" onmouseout="unhoverPresentation(this);" ></a>
+
+              </div>
+                <div class="col-lg-6 col-md-6 text-left">
+                    <h3 class="section-heading">Fonctionnement</h3>
+
+                    <p class="text-faded">
+                      <ol class="text-left">
+                        <li>Saisissez votre fichier d'adresse, votre email et vos options,</li>
+                        <li>Le service vous envoie un email de prise en charge,</li>
+                        <li>Lorque le traitement est terminé, vous recevez un email vous permettant de télécharger le fichier traité.</li>
+                      </ol>
+                      </p>
+                    <a href="#qualification_fichier" class="page-scroll btn btn-default btn-xl sr-button">Qualifer des adresses</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="services">
+    <div id="qualification_fichier"></div>
+    <section class="section-small" id="qualification_fichier_formulaire">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">At Your Service</h2>
+                    <h2 class="section-heading">Service de qualification de fichier d'adresse</h2>
                     <hr class="primary">
+                </div>
+            </div>
+        </div>
+
+        <div id="APIQADR_fichier"></div>
+        <div class="container">
+            <div class="row top-buffer">
+                <div class="col-lg-6 col-md-6 text-left">
+                  <div class="demo-box">
+                    <h3 class="section-heading">Explications</h3>
+                    <h4>Fichier</h4>
+                    <p class="text-muted">
+                    Le fichier peut être de type FSPlus (<u><a href="http://ws-apiqa-sdev.apps.paas.dev.net-courrier.extra.laposte.fr/swagger/address_sample.csv" target="_blank">avec</a></u> ou <u><a href="http://ws-apiqa-sdev.apps.paas.dev.net-courrier.extra.laposte.fr/swagger/address_sample.csv" target="_blank">sans</a></u> colonne "Action") ou un format <u><a href="http://ws-apiqa-sdev.apps.paas.dev.net-courrier.extra.laposte.fr/swagger/address_sample.csv" target="_blank">libre</a></u>.
+                    <ul class="text-muted">                    
+                        <li>Pour les fichiers "libre" non FSPlus, le fichier csv doit avoir dans l'entête le type des champs : address_row1, ..., address_row6, postal_code, locality,</li>
+                        <li>Le séparateur de champs doit être le point-virgule,</li>
+                        <li>Le fichier peut contenir des colonnes personnelles.</li>
+                    </ul>
+                    </p>
+                    <h4>Informations retournées</h4>
+                    <ul  class="text-muted">
+                        <li><strong>deliverable</strong> : indique si l'adresse est  delivrable (l'adresse existe et une et une seule tournée est rattachée à cette adresse),</li>
+                        <li><strong>distribution_site.id</strong> : Identifiant REGATE du site de distribution (Ex: 752310),</li>
+                        <li><strong>distribution_site.id_roc</strong> : Identifiant ROC du site de distribution (Ex: A21588),</li>
+                        <li><strong>round.id</strong> : Identifiant unique de tournée (Ex : 123456),</li>
+                        <li><strong>round.label</strong> : Libellé de la tournée (Ex : 0001),</li>
+                        <li><strong>round.type</strong> : Type de tournée : (BP : Boite Postale, CS : Course Speciale, TL : Tournee Lettre, TM : Tournee mixte : la tournée contient une partie Courrier et une partie Colis, TC : Tournee Courrier,  KI : Kiosque),</li>
+                        <li><strong>round.rank</strong> : Rang de l'adresse dans la tournée (Ex : 3),</li>
+                        <li><strong>address_ids.id</strong> : Identifiant d'adresse (cea) le plus fin identifié (Ex: 75118224SS),</li>
+                        <li><strong>address_ids.type</strong> : Type de l'identifiant d'adresse (address_ids.id) le plus fin trouvé : row3>row4_number>row4_road>row56 (Ex: row3),</li>
+                        <li><strong>address_ids.rowXX</strong> : Identifiant d'adresse (cea) de niveau rowXX.</li>
+                    </ul>
+                  </div>
+                </div>
+
+
+                <div class="col-lg-6 col-md-6">
+                    <div id="file_error" class="bg-danger text-center hidden">
+                        <p>Votre traitement n'a pas pu être effectué :<br/> <span id="file_error_message" class="text-primary">Erreur serveur</span></p>
+                        <p id="file_error_message_more">Veuillez réessayer plus tard. Notre exploitant est informé du problème.</p>
+                        <button type="submit" class="btn btn-primary">ReLancer un traitement</button>
+                            <p><br/>Donnez <a href="http://bit.ly/APIQADR_votre_avis_web">votre avis</a> sur le service</p>
+                    </div>
+                  
+                    <div id="file_success" class="bg-success text-center hidden">
+                        <p>Votre demande de traitement a été envoyé avec l'identifiant :<br/> <span id="batch-uid">1234-12345-12345-12345</span></p>
+                        <p>Vous allez recevoir le résultat du traitement par mail</p>
+                        <button type="submit" class="btn btn-primary">ReLancer un traitement</button>
+                        <p><br/>Donnez <a href="http://bit.ly/APIQADR_votre_avis_web">votre avis</a> sur le service</p>
+                    </div>
+
+                    <form id="formFile" class="form-horizontal">
+                    <div class="form-group">
+                        <label for="notification_email" class="col-sm-4 control-label">Email</label>
+                        <div class="col-sm-8">
+                            <p class="help-block">Pour recevoir le résultat du traitement</p>
+                            <input type="email" class="form-control" id="notification_email" name="notification_email" placeholder="(Ex: jean.dupond@laposte.fr)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputFile" class="col-sm-4 control-label">Fichier</label>
+                        <div class="col-sm-8">
+                            <p class="help-block">Fichiers d'adresses au format .csv</p>
+                            <input type="file" class="form-control" id="inputFile" placeholder="adresses.csv">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Format du fichier</label>
+                        <div class="col-sm-8">
+                            <div class="radio">
+                            <label>
+                                <input type="radio" name="data_format" id="data_format" value=";;address_row1;address_row2;address_row3;address_row4;address_row5;postal_code;locality" checked>
+                                Format FSPlus (SANS colonne "Action")
+                            </label>
+                            </div>
+                            <div class="radio">
+                            <label>
+                                <input type="radio" name="data_format" id="data_format" value=";;;address_row1;address_row2;address_row3;address_row4;address_row5;postal_code;locality">
+                                Format FSPlus (AVEC colonne "Action")
+                            </label>
+                            </div>
+                            <div class="radio">
+                            <label>
+                                <input type="radio" name="data_format" id="data_format" value="">
+                                Format libre
+                            </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group hidden">
+                        <label for="csv_numeric_format" class="col-sm-4 control-label">Format de sortie</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="csv_numeric_format" value="excel_string" />
+                        </div>
+                    </div>
+                    <div class="form-group hidden">
+                        <label for="params" class="col-sm-4 control-label">Informations retournées</label>
+                        <div class="col-sm-8">
+                            <select multiple class="form-control" id="params">
+                                <option selected>Adresse délivrable</option>
+                                <option selected>Site de distribution (code roc, regate)</option>
+                                <option selected>Tournée (identifiant, libellé, type, rang)</option>
+                                <option selected>Identifiants d'adresse</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-8">
+                        <button type="submit" class="btn btn-primary">Lancer le traitement</button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+          </div>
+        </div>
+    </section>
+
+    <section id="services" class="bg-primary">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Services</h2>
                 </div>
             </div>
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6 text-center">
+                <div class="col-sm-4 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x fa-diamond text-primary sr-icons"></i>
-                        <h3>Sturdy Templates</h3>
-                        <p class="text-muted">Our templates are updated regularly so they don't break.</p>
+                        <i class="fa fa-4x fa-code sr-icons"></i>
+                        <h3 class="text-info">API</h3>
+                        <p>Le service disponible est également en mode <a href="https://ws-apiqa.apps.paas.net-courrier.extra.laposte.fr/swagger/index.html" class="text-muted">API</a> unitaire ou massif.</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 text-center">
+                <div class="col-sm-4 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x fa-paper-plane text-primary sr-icons"></i>
-                        <h3>Ready to Ship</h3>
-                        <p class="text-muted">You can use this theme as is, or you can make changes!</p>
+                        <i class="fa fa-4x fa-diamond sr-icons"></i>
+                        <h3 class="text-info">Disponibilité</h3>
+                        <p>24h/24 - 7J/7</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 text-center">
+                <div class="col-sm-4 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x fa-newspaper-o text-primary sr-icons"></i>
-                        <h3>Up to Date</h3>
-                        <p class="text-muted">We update dependencies to keep things fresh.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <i class="fa fa-4x fa-heart text-primary sr-icons"></i>
-                        <h3>Made with Love</h3>
-                        <p class="text-muted">You have to make your websites with love these days!</p>
+                        <i class="fa fa-4x fa-rocket sr-icons"></i>
+                        <h3 class="text-info">Performance</h3>
+                        <p>70 traitements par seconde</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="no-padding" id="portfolio">
-        <div class="container-fluid">
-            <div class="row no-gutter popup-gallery">
-                <div class="col-lg-4 col-sm-6">
-                    <a href="img/portfolio/fullsize/1.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="img/portfolio/fullsize/2.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/2.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="img/portfolio/fullsize/3.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/3.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="img/portfolio/fullsize/4.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/4.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="img/portfolio/fullsize/5.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/5.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="img/portfolio/fullsize/6.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/6.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <aside class="bg-dark">
-        <div class="container text-center">
-            <div class="call-to-action">
-                <h2>Free Download at Start Bootstrap!</h2>
-                <a href="http://startbootstrap.com/template-overviews/creative/" class="btn btn-default btn-xl sr-button">Download Now!</a>
-            </div>
-        </div>
-    </aside>
+    
 
-    <section id="contact">
+    <section id="contact" class="bg-dark">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Let's Get In Touch!</h2>
+                    <h2 class="section-heading">A votre écoute !</h2>
                     <hr class="primary">
-                    <p>Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
-                </div>
-                <div class="col-lg-4 col-lg-offset-2 text-center">
-                    <i class="fa fa-phone fa-3x sr-contact"></i>
-                    <p>123-456-6789</p>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <i class="fa fa-envelope-o fa-3x sr-contact"></i>
-                    <p><a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a></p>
+                    <p>Donnez <a href="http://bit.ly/APIQADR_votre_avis_web">votre avis</a> : souhaits d'évolutions, problèmes...</p>
                 </div>
             </div>
         </div>
@@ -274,7 +306,8 @@
 
     <!-- Theme JavaScript -->
     <script src="js/creative.min.js"></script>
+    <script src="js/main.js"></script>
+    
 
 </body>
-
 </html>
