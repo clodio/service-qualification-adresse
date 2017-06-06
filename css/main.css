@@ -4,3 +4,7 @@
     height: 100%;
     display : block; /*Très important, sinon les dimensions ne sont pas prises en compte*/
 }
+
+.hide {
+    display: none;
+}
