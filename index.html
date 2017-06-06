@@ -57,7 +57,7 @@
                         <a class="page-scroll" href="#presentation">Présentation</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#qualification_fichier">Qualifier des adresses</a>
+                        <a class="page-scroll" href="#qualification_fichier">Qualifier un fichier d'adresse</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#services">Services</a>
@@ -81,7 +81,7 @@
                 Récupérez des adresses qualifiées avec des données complémentaires
                 </p>
                 <a href="#presentation" class="btn btn-primary btn-xl page-scroll">En savoir plus</a>
-                <a href="#qualification_fichier" class="btn btn-primary btn-xl page-scroll">Qualifier des adresses</a>
+                <a href="#qualification_fichier" class="btn btn-primary btn-xl page-scroll">Qualifier un fichier d'adresse</a>
             </div>
         </div>
     </header>
@@ -90,7 +90,7 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-12 text-center">
-              <h2 class="section-heading">Service de qualification de fichier d'adresse</h2>
+              <h2 class="section-heading">Présentation du service</h2>
 <hr class="light">
             </div>
           </div>
@@ -104,17 +104,17 @@
 
               </div>
                 <div class="col-lg-6 col-md-6 text-left">
-                    <h3 class="section-heading">Fonctionnement</h3>
+                    <h3 class="section-heading">Marche à suivre en 4 étapes</h3>
 
                     <p class="text-faded">
                       <ol class="text-left">
-                        <li>Saisissez votre fichier d'adresse, votre email et vos options,</li>
+                        <li>Saisissez votre fichier d'adresse, votre email,</li>
                         <li>Le service vous envoie un email de prise en charge,</li>
                         <li>Lorque le traitement est terminé, vous recevez un email vous permettant de télécharger le fichier traité.</li>
-                        <li>Le fichier contiendra vos données ainsi que des colonnes complémentaires issues du traitement.</li>
+                        <li>Le fichier contiendra vos données ainsi que des colonnes complémentaires issues du traitement (site de distributin, identifiant de tournée,...)</li>
                       </ol>
                       </p>
-                    <a href="#qualification_fichier" class="page-scroll btn btn-default btn-xl sr-button">Qualifer des adresses</a>
+                    <a href="#qualification_fichier" class="page-scroll btn btn-default btn-xl sr-button">Qualifier un fichier d'adresse</a>
                 </div>
             </div>
         </div>
@@ -125,7 +125,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Service de qualification de fichier d'adresse</h2>
+                    <h2 class="section-heading">Qualifier un fichier d'adresse</h2>
                     <hr class="primary">
                 </div>
             </div>
@@ -187,13 +187,6 @@
 
                     <form id="formFile" class="form-horizontal">
                     <div class="form-group">
-                        <label for="notification_email" class="col-sm-4 control-label">Email</label>
-                        <div class="col-sm-8">
-                            <input type="email" class="form-control" id="notification_email" name="notification_email" placeholder="(Ex: jean.dupond@laposte.fr)">
-                            <p class="help-block">Pour recevoir le résultat du traitement</p>
-                        </div>
-                    </div>
-                    <div class="form-group">
                         <label for="file" class="col-sm-4 control-label">Fichier</label>
                         <div class="col-sm-8">
                             <input type="file" class="form-control" id="file" placeholder="adresses.csv">
@@ -227,6 +220,13 @@
                         <label for="csv_numeric_format" class="col-sm-4 control-label">Format de sortie</label>
                         <div class="col-sm-8">
                             <input type="text" id="csv_numeric_format" value="excel_string" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="notification_email" class="col-sm-4 control-label">Email</label>
+                        <div class="col-sm-8">
+                            <input type="email" class="form-control" id="notification_email" name="notification_email" placeholder="(Ex: jean.dupond@laposte.fr)">
+                            <p class="help-block">Pour recevoir le résultat du traitement</p>
                         </div>
                     </div>
                     <div class="form-group collapse">

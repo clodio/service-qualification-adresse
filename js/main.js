@@ -62,7 +62,12 @@ $(document).ready(function(){
                 // Affichage d'une erreur
                 $("#file_error").show();
                 $("#file_success").hide();
-                $("#file_error_message").text("Erreur Serveur " + jqXHR.status);
+                var error_id;
+                error_id = jqXHR.status 
+                if ( jqXHR.getResponseHeader('Correlation-Id') ) {
+                    error_id = error_id + "_" + jqXHR.getResponseHeader('Correlation-Id');
+                }
+                $("#file_error_message").text("Erreur Serveur " + error_id);
             }
             $("#file_transfer").hide();
             $("#formFile").hide();
@@ -81,7 +86,12 @@ $(document).ready(function(){
                 // TODO : afficher un numéro d'erreur plus pertinent
                 $("#file_error").show();
                 $("#file_success").hide();
-                $("#file_error_message").text("Erreur Serveur " + jqXHR.status);
+                var error_id;
+                error_id = jqXHR.status 
+                if ( jqXHR.getResponseHeader('Correlation-Id') ) {
+                    error_id = error_id + "_" + jqXHR.getResponseHeader('Correlation-Id');
+                }
+                $("#file_error_message").text("Erreur Serveur " + error_id);
             }
             $("#file_transfer").hide();
             $("#formFile").hide();
