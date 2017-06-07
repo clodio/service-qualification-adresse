@@ -139,15 +139,15 @@
                     <h3 class="section-heading">Explications</h3>
                     <h4>Fichier</h4>
                     <p class="text-muted">
-                    Le fichier peut être de type FSPlus (<u><a href="http://ws-apiqa-sdev.apps.paas.dev.net-courrier.extra.laposte.fr/swagger/address_sample.csv" target="_blank">avec</a></u> ou <u><a href="http://ws-apiqa-sdev.apps.paas.dev.net-courrier.extra.laposte.fr/swagger/address_sample.csv" target="_blank">sans</a></u> colonne "Action") ou un format <u><a href="http://ws-apiqa-sdev.apps.paas.dev.net-courrier.extra.laposte.fr/swagger/address_sample.csv" target="_blank">libre</a></u>.
+                    Le fichier peut être de type FSPlus (<u><a href="static/ServiceQualificationAdresseFormatFSPlusAvecAction.csv" target="_blank">avec</a></u> ou <u><a href="static/ServiceQualificationAdresseFormatFSPlusSansAction.csv" target="_blank">sans</a></u> colonne "Action") ou un format <u><a href="static/ServiceQualificationAdresseFormatLibre.csv" target="_blank">libre</a></u>.
                     <ul class="text-muted">                    
                         <li>Pour les fichiers "libres" non FSPlus, le fichier csv doit avoir dans l'entête le type des champs : address_row1, ..., address_row6, postal_code, locality,</li>
                         <li>Le séparateur de champs doit être le point-virgule,</li>
                         <li>Le fichier peut contenir des colonnes personnelles.</li>
                     </ul>
                     </p>
-                    <h4>Informations retournées</h4>
-                    <ul  class="text-muted">
+                    <h4 id="information_description_deplier">Informations retournées <i class="text-primary fa fa-caret-down" aria-hidden="true"></i></h4><span ></span>
+                    <ul id="information_description" class="text-muted collapse">
                         <li><strong>deliverable</strong> : indique si l'adresse est delivrable (l'adresse existe et une et une seule tournée est rattachée à cette adresse),</li>
                         <li><strong>distribution_site.id</strong> : Identifiant REGATE du site de distribution (Ex: 752310),</li>
                         <li><strong>distribution_site.id_roc</strong> : Identifiant ROC du site de distribution (Ex: A21588),</li>

@@ -81,7 +81,7 @@ $(document).ready(function(){
                 headers: {},
                 processData: false,
                 mimeType: "multipart/form-data",
-                url: "http://ws-apiqa-sdev.apps.paas.dev.net-courrier.extra.laposte.fr" +  "/address/v1/batch_analysis" + query,
+                url: "" +  "/address/v1/batch_analysis" + query,
                 method: "POST",
                 contentType: false,
                 data: data,
@@ -173,6 +173,12 @@ $(document).ready(function(){
         }
     });
 
+
+
+    // On déplie les explication détaillées
+    $("#information_description_deplier").click(function(e){
+             $('#information_description').toggle();
+    });
 
     // Vérification notification_email sur perte de focus
     $('#notification_email').bind('focusout', function() {
