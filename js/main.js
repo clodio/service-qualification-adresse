@@ -39,11 +39,19 @@ $(document).ready(function(){
         // Vérification email
         if ( ! validateEmail($("#notification_email").val()) ) {
             formValid= false;
+            $('#notification_email_alert').show();
+            $('#form_group_notification_email').addClass("has-error");
+            $('#form_group_notification_email').removeClass("has-success")
+            $('#form_group_file').addClass("has_error");
         }
 
         // Vérification fichier
        if ( ! validateFileExtensionIsCSV($('input[type=file]').val()) ) {
             formValid= false;
+            $('#file_alert').show();
+            $('#form_group_file').addClass("has-error");
+            $('#form_group_file').removeClass("has-success")
+            $('#form_group_file').addClass("has_error");
         }
         
         if (formValid) {
@@ -148,7 +156,7 @@ $(document).ready(function(){
             displayPanelhideOthers("#formFile");
     });
 
-   
+
     // vérification file Extension CSV
     $('#file').bind('change', function() {
 
