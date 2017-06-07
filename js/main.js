@@ -96,7 +96,7 @@ $(document).ready(function(){
             request.done(function(data, statusText, jqXHR) {
                 if ( jqXHR.status == "202") {
                     // Affichage du panneau de succès
-                    $("#batch-uid").val(jqXHR.getResponseHeader('Location').split('/').pop());
+                    $("#batch-uid").text(jqXHR.getResponseHeader('Location').split('/').pop());
                     displayPanelhideOthers("#file_success");
                 }
                 else {
@@ -118,7 +118,7 @@ $(document).ready(function(){
                 if ( jqXHR.status == "202") {
                     // Code présent du fait d'un bug jquery 
                     // Dans le cas de code 202 avec body vide jquery considère que c'est une erreur
-                    $("#batch-uid").val(jqXHR.getResponseHeader('Location').split('/').pop());
+                    $("#batch-uid").text(jqXHR.getResponseHeader('Location').split('/').pop());
                     displayPanelhideOthers("#file_success");
                 }
                 else {
