@@ -21,6 +21,26 @@ function validateFileExtensionIsCSV(fileName) {
   }
 }
 
+function handleReturnBatchAnalysis(jqXHR, error) {
+    if ( jqXHR.status == "202") {
+        // Affichage du panneau de succès
+        $("#batch-uid").text(jqXHR.getResponseHeader('Location').split('/').pop());
+        displayPanelhideOthers("#file_success");
+    }
+    else {
+        // Ce cas ne devrait pas arriver
+        // Affichage d'une erreur
+        displayPanelhideOthers("#file_error");
+
+        var error_id;
+        error_id = jqXHR.status;
+        if ( jqXHR.getResponseHeader('Correlation-Id') ) {
+            error_id = error_id + "_" + jqXHR.getResponseHeader('Correlation-Id');
+        }
+        $("#file_error_message").text("Erreur Serveur " + error_id);
+    }
+}
+
 function displayPanelhideOthers(panel) {
     $("#file_transfer").hide();
     $("#formFile").hide();
@@ -41,7 +61,7 @@ $(document).ready(function(){
             formValid= false;
             $('#notification_email_alert').show();
             $('#form_group_notification_email').addClass("has-error");
-            $('#form_group_notification_email').removeClass("has-success")
+            $('#form_group_notification_email').removeClass("has-success");
             $('#form_group_file').addClass("has_error");
         }
 
@@ -50,7 +70,7 @@ $(document).ready(function(){
             formValid= false;
             $('#file_alert').show();
             $('#form_group_file').addClass("has-error");
-            $('#form_group_file').removeClass("has-success")
+            $('#form_group_file').removeClass("has-success");
             $('#form_group_file').addClass("has_error");
         }
         
@@ -70,7 +90,7 @@ $(document).ready(function(){
             var query = "?params=" + $("#params").val().toString() + "&notification_email=" + $("#notification_email").val() + "&csv_numeric_format=" + $("#csv_numeric_format").val() + "&my_fields=" + $("#my_fields").val();
 
             // Ajout du parametre data_format si non vide
-            if ( $('input[name=data_format]:checked', '#formFile').val().toString() !="" ){
+            if ( $('input[name=data_format]:checked', '#formFile').val().toString() !=="" ){
                 query= query + "&data_format=" + $('input[name=data_format]:checked', '#formFile').val().toString();
             }
 
@@ -94,45 +114,11 @@ $(document).ready(function(){
             });
             
             request.done(function(data, statusText, jqXHR) {
-                if ( jqXHR.status == "202") {
-                    // Affichage du panneau de succès
-                    $("#batch-uid").text(jqXHR.getResponseHeader('Location').split('/').pop());
-                    displayPanelhideOthers("#file_success");
-                }
-                else {
-                    // Ce cas ne devrait pas arriver
-                    // Affichage d'une erreur
-                    displayPanelhideOthers("#file_error");
-
-                    var error_id;
-                    error_id = jqXHR.status 
-                    if ( jqXHR.getResponseHeader('Correlation-Id') ) {
-                        error_id = error_id + "_" + jqXHR.getResponseHeader('Correlation-Id');
-                    }
-                    $("#file_error_message").text("Erreur Serveur " + error_id);
-                }
-
+                handleReturnBatchAnalysis(jqXHR, error);
             });
             
             request.fail(function(jqXHR, textStatus, error) {
-                if ( jqXHR.status == "202") {
-                    // Code présent du fait d'un bug jquery 
-                    // Dans le cas de code 202 avec body vide jquery considère que c'est une erreur
-                    $("#batch-uid").text(jqXHR.getResponseHeader('Location').split('/').pop());
-                    displayPanelhideOthers("#file_success");
-                }
-                else {
-                    // Affichage d'une erreur
-                    displayPanelhideOthers("#file_error");
-
-                    var error_id;
-                    error_id = jqXHR.status 
-                    if ( jqXHR.getResponseHeader('Correlation-Id') ) {
-                        // TODO : afficher un numéro d'erreur plus pertinent
-                        error_id = error_id + "_" + jqXHR.getResponseHeader('Correlation-Id');
-                    }
-                    $("#file_error_message").text("Erreur Serveur " + error_id);
-                }
+                handleReturnBatchAnalysis(jqXHR, error);
             });
         }
     });
@@ -163,21 +149,27 @@ $(document).ready(function(){
         if ( validateFileExtensionIsCSV($('input[type=file]').val()) ) {
             $('#file_alert').hide();
             $('#form_group_file').removeClass("has-error");
-            $('#form_group_file').addClass("has-success")
+            $('#form_group_file').addClass("has-success");
         }
         else {
             $('#file_alert').show();
             $('#form_group_file').addClass("has-error");
-            $('#form_group_file').removeClass("has-success")
+            $('#form_group_file').removeClass("has-success");
             $('#form_group_file').addClass("has_error");
         }
     });
 
-
-
     // On déplie les explication détaillées
     $("#information_description_deplier").click(function(e){
-             $('#information_description').toggle();
+        $('#information_description').toggle();
+        if ($('#information_description').is(":hidden")) {
+            $('#information_description_button').removeClass("fa-minus-square");
+            $('#information_description_button').addClass("fa-plus-square");          
+        }
+        else {
+            $('#information_description_button').removeClass("fa-plus-square");
+            $('#information_description_button').addClass("fa-minus-square");
+        }
     });
 
     // Vérification notification_email sur perte de focus
@@ -186,12 +178,12 @@ $(document).ready(function(){
         if ( validateEmail($("#notification_email").val()) ) {
             $('#notification_email_alert').hide();
             $('#form_group_notification_email').removeClass("has-error");
-            $('#form_group_notification_email').addClass("has-success")
+            $('#form_group_notification_email').addClass("has-success");
         }
         else {
             $('#notification_email_alert').show();
             $('#form_group_notification_email').addClass("has-error");
-            $('#form_group_notification_email').removeClass("has-success")
+            $('#form_group_notification_email').removeClass("has-success");
             $('#form_group_file').addClass("has_error");
         }
     });
@@ -200,7 +192,7 @@ $(document).ready(function(){
     var oldValue_notification_email = $( "#notification_email" ).val();
     $('#notification_email').on('keydown',function(e) {
 
-        if ( !validateEmail(oldValue_notification_email) && validateEmail( $( "#notification_email" ).val() + e.key ) && oldValue_notification_email!="" ) {
+        if ( !validateEmail(oldValue_notification_email) && validateEmail( $( "#notification_email" ).val() + e.key ) && oldValue_notification_email!=="" ) {
             $('#notification_email_alert').hide();
             $('#form_group_notification_email').removeClass("has-error");
             $('#form_group_notification_email').addClass("has-success");

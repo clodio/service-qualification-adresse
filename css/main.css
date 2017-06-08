@@ -8,3 +8,7 @@
 .hide {
     display: none;
 }
+
+.cursor_pointer:hover {
+    cursor: pointer;
+}

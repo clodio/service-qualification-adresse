@@ -91,7 +91,7 @@
           <div class="row">
             <div class="col-lg-12 text-center">
               <h2 class="section-heading">Présentation du service</h2>
-<hr class="light">
+                <hr class="light">
             </div>
           </div>
             <div class="row">
@@ -146,22 +146,24 @@
                         <li>Le fichier peut contenir des colonnes personnelles.</li>
                     </ul>
                     </p>
-                    <h4 id="information_description_deplier">Informations retournées <i class="text-primary fa fa-caret-down" aria-hidden="true"></i></h4><span ></span>
-                    <ul id="information_description" class="text-muted collapse">
-                        <li><strong>deliverable</strong> : indique si l'adresse est delivrable (l'adresse existe et une et une seule tournée est rattachée à cette adresse),</li>
-                        <li><strong>distribution_site.id</strong> : Identifiant REGATE du site de distribution (Ex: 752310),</li>
-                        <li><strong>distribution_site.id_roc</strong> : Identifiant ROC du site de distribution (Ex: A21588),</li>
-                        <li><strong>round.id</strong> : Identifiant unique de tournée (Ex : 123456),</li>
-                        <li><strong>round.label</strong> : Libellé de la tournée (Ex : 0001),</li>
-                        <li><strong>round.type</strong> : Type de tournée : (BP : Boite Postale, CS : Course Speciale, TL : Tournée Lettre, TM : Tournée mixte : la tournée contient une partie Courrier et une partie Colis, TC : Tournée Courrier,  KI : Kiosque),</li>
-                        <li><strong>round.rank</strong> : Rang de l'adresse dans la tournée (Ex : 3),</li>
-                        <li><strong>address_ids.id</strong> : Identifiant d'adresse (cea) le plus fin identifié (Ex: 75118224SS),</li>
-                        <li><strong>address_ids.type</strong> : Type de l'identifiant d'adresse (address_ids.id) le plus fin trouvé : row3>row4_number>row4_road>row56 (Ex: row3),</li>
-                        <li><strong>address_ids.rowXX</strong> : Identifiant d'adresse (cea) de niveau rowXX.</li>
-                    </ul>
+                    <h4 id="information_description_deplier" class="cursor_pointer">Informations retournées <i id="information_description_button" class="text-primary fa fa-plus-square" aria-hidden="true"></i></h4><span ></span>
+                    <div id="information_description" class="text-muted collapse">
+                        <div>Voici un <a href="static/ServiceQualificationAdresseFormatFSPlusSansActionResultat.csv" target="_blank">exemple</a> de fichier retourné, les données complémentaires renvoyés par le service sont :</div>
+                        <ul class="text-muted">
+                            <li><strong>deliverable</strong> : indique si l'adresse est delivrable (l'adresse existe et une et une seule tournée est rattachée à cette adresse),</li>
+                            <li><strong>distribution_site.id</strong> : Identifiant REGATE du site de distribution (Ex: 752310),</li>
+                            <li><strong>distribution_site.id_roc</strong> : Identifiant ROC du site de distribution (Ex: A21588),</li>
+                            <li><strong>round.id</strong> : Identifiant unique de tournée (Ex : 123456),</li>
+                            <li><strong>round.label</strong> : Libellé de la tournée (Ex : 0001),</li>
+                            <li><strong>round.type</strong> : Type de tournée : (BP : Boite Postale, CS : Course Speciale, TL : Tournée Lettre, TM : Tournée mixte : la tournée contient une partie Courrier et une partie Colis, TC : Tournée Courrier,  KI : Kiosque),</li>
+                            <li><strong>round.rank</strong> : Rang de l'adresse dans la tournée (Ex : 3),</li>
+                            <li><strong>address_ids.id</strong> : Identifiant d'adresse (cea) le plus fin identifié (Ex: 75118224SS),</li>
+                            <li><strong>address_ids.type</strong> : Type de l'identifiant d'adresse (address_ids.id) le plus fin trouvé : row3>row4_number>row4_road>row56 (Ex: row3),</li>
+                            <li><strong>address_ids.rowXX</strong> : Identifiant d'adresse (cea) de niveau rowXX.</li>
+                        </ul>
+                    </div>
                   </div>
                 </div>
-
 
                 <div class="col-lg-6 col-md-6">
                     <div id="file_error" class="bg-danger text-center collapse">
