@@ -1,0 +1,10 @@
+{
+  "extends": "eslint:recommended",
+
+  "globals": {
+    "document": false,
+    "navigator": true,
+    "window": false
+  },
+  "indent": ["error", "tab"]
+}

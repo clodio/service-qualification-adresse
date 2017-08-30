@@ -12,3 +12,7 @@
 .cursor_pointer:hover {
     cursor: pointer;
 }
+
+#file_transfer_progress {
+    margin : 5px 20px 5px 20px;
+}

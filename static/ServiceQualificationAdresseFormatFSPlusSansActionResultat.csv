@@ -1,5 +1,4 @@
-Date de début souhaitée;Référence Bénéficiaire;Nom Prénom ou Raison sociale;Lieu de remise;N° ou Boite aux lettres - Couloir-Escalier;Numéro et Libellé de Voie;Complément Commune;Code Postal;Localité;Indication d'accès au bénéficiaire;Indications complémentaires
-18/06/2018;CLIENT0001;M SEGURET CLAUDE;APPARTEMENT 102;;61 rue de caulaincourt;;75018;PARIS;DERRIERE la Porte;
-18/06/2018;CLIENT0002;M SEGURET CLAUDE;APPARTEMENT 102;;61 rue de caullaincourt;;75018;PARIS;;
-18/06/2018;CLIENT0003;M SEGURET CLAUDE;APPARTEMENT 102;;61 rue de caula;;75000;ARIS;;
-;;;;;;;;;;
+Action;Date de début souhaitée;Référence Bénéficiaire;Nom Prénom ou Raison sociale;Lieu de remise;N° ou Boite aux lettres - Couloir-Escalier;Numéro et libellé de voie;Complément commune ou service postal;Code postal;Localité;Indication d'accès au bénéficiaire;Indications complémentaires;deliverable;round.id;round.rank;round.label;address_ids.id;address_ids.internal_service;address_ids.cedex_id;address_ids.row3;address_ids.row4_number;address_ids.row4_road;address_ids.row56;address_ids.type;distribution_site.id;distribution_site.id_roc;distribution_site.label;
+18/06/2018;CLIENT0001;M SEGURET CLAUDE;APPARTEMENT 102;;61 rue de caulaincourt;;75018;PARIS;DERRIERE la Porte;;;true;77177;25;TM0201;75118224SS;;;;75118224SS;7511822262;7511822U3E;row4_number;752310;A21588;A21588;PARIS 18 PPDC
+18/06/2018;CLIENT0002;M SEGURET CLAUDE;APPARTEMENT 102;;61 rue de caullaincourt;;75018;PARIS;;;;true;77177;25;TM0201;75118224SS;;;;75118224SS;7511822262;7511822U3E;row4_number;752310;A21588;A21588;PARIS 18 PPDC
+18/06/2018;CLIENT0003;M SEGURET CLAUDE;APPARTEMENT 102;;61 rue de caula;;75000;ARIS;;;;false;;;;;;;;;;;;;;;

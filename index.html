@@ -10,15 +10,15 @@
     <meta name="author" content="">
 
     <title>Service de qualification d'adresses</title>
-    <link rel="icon" href="img/favicon.ico" /> 
+    <link rel="icon" href="img/favicon.ico" />
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>-->
 
     <!-- Plugin CSS -->
     <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
@@ -28,6 +28,9 @@
 
     <!-- Theme CSS site-->
     <link href="css/main.css" rel="stylesheet">
+
+    <!-- Leaflet Theme -->
+    <link rel="stylesheet" href="css/leaflet.css"/>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -57,7 +60,7 @@
                         <a class="page-scroll" href="#presentation">Présentation</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#qualification_fichier">Qualifier un fichier d'adresse</a>
+                        <a class="page-scroll" href="#qualification_fichier">Qualifier un fichier d'adresses</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#services">Services</a>
@@ -77,11 +80,11 @@
             <div class="header-content-inner">
                 <h1 id="homeHeading">Service de qualification d'adresses</h1>
                 <hr>
-                <p>Envoyez une ou plusieurs adresses,<br/> 
-                Récupérez des adresses qualifiées avec des données complémentaires<br/> 
+                <p>Envoyez une ou plusieurs adresses,<br/>
+                Récupérez des adresses qualifiées avec des données complémentaires<br/>
                 <a href="#presentation" class="page-scroll"><em>En savoir plus</em></a>
                 </p>
-                <a href="#qualification_fichier" class="btn btn-primary btn-xl page-scroll">Qualifier un fichier d'adresse</a>
+                <a href="#qualification_fichier" class="btn btn-primary btn-xl page-scroll">Qualifier un fichier d'adresses</a>
             </div>
         </div>
     </header>
@@ -107,24 +110,25 @@
                     <h3 class="section-heading">Marche à suivre en 4 étapes</h3>
                       <br/>
                       <ol class="text-left">
-                        <li>Importez votre fichier d'adresse, saisissez votre email,</li>
+                        <li>Importez votre fichier d'adresses, saisissez votre email,</li>
                         <li>Le service vous envoie un email de prise en charge,</li>
                         <li>Lorque le traitement est terminé, vous recevez un email vous permettant de récupérer le fichier traité.</li>
                         <li>Le fichier contiendra vos données ainsi que des colonnes complémentaires (site de distribution, identifiant de tournée,...)</li>
                       </ol>
                       <br/>
-                      <a href="#qualification_fichier" class="page-scroll btn btn-default btn-xl sr-button">Qualifier un fichier d'adresse</a>
+                      <a href="#qualification_fichier" class="page-scroll btn btn-default btn-xl sr-button">Qualifier un fichier d'adresses</a>
                 </div>
             </div>
         </div>
     </section>
 
+    <a name="formTop"></a>
     <div id="qualification_fichier"></div>
     <section class="section-small" id="qualification_fichier_formulaire">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Qualifier un fichier d'adresse</h2>
+                    <h2 class="section-heading">Qualifier un fichier d'adresses</h2>
                     <hr class="primary">
                 </div>
             </div>
@@ -140,38 +144,41 @@
                     <p class="text-muted">
                     Le fichier peut être de type FSPlus (<u><a href="static/ServiceQualificationAdresseFormatFSPlusAvecAction.csv" target="_blank">avec</a></u> ou <u><a href="static/ServiceQualificationAdresseFormatFSPlusSansAction.csv" target="_blank">sans</a></u> colonne "Action") ou un format <u><a href="static/ServiceQualificationAdresseFormatLibre.csv" target="_blank">libre</a></u>.
                     </p>
-                    <ul class="text-muted">                    
+                    <ul class="text-muted">
                         <li>Pour les fichiers "libres" non FSPlus, le fichier csv doit avoir dans l'entête le type des champs : address_row1, ..., address_row6, postal_code, locality,</li>
                         <li>Le séparateur de champs doit être le point-virgule,</li>
                         <li>Le fichier peut contenir des colonnes personnelles.</li>
                     </ul>
-                    <h4 id="information_description_deplier" class="cursor_pointer">Informations retournées <i id="information_description_button" class="text-primary fa fa-plus-square" aria-hidden="true"></i></h4><span ></span>
+                    <h4 id="information_description_unfold" class="cursor_pointer">Informations retournées <i id="information_description_icon" class="text-primary fa fa-plus-square" aria-hidden="true"></i></h4><span ></span>
                     <div id="information_description" class="text-muted collapse">
                         <div>Voici un <a href="static/ServiceQualificationAdresseFormatFSPlusSansActionResultat.csv" target="_blank">exemple</a> de fichier retourné, les données complémentaires renvoyés par le service sont :</div>
                         <ul class="text-muted">
                             <li><strong>deliverable</strong> : indique si l'adresse est delivrable (l'adresse existe et une et une seule tournée est rattachée à cette adresse),</li>
                             <li><strong>distribution_site.id</strong> : Identifiant REGATE du site de distribution (Ex: 752310),</li>
-                            <li><strong>distribution_site.id_roc</strong> : Identifiant ROC du site de distribution (Ex: A21588),</li>
+                            <li><strong>distribution_site.id_roc</strong> : Identifiant <abbr title="Référentiel d'Organisation Courrier">ROC</abbr> du site de distribution (Ex: A21588),</li>
+                            <li><strong>distribution_site.label</strong> : Libellé du site de distribution (Ex: OBERNAI PDC1),</li>
                             <li><strong>round.id</strong> : Identifiant unique de tournée (Ex : 123456),</li>
-                            <li><strong>round.label</strong> : Libellé de la tournée (Ex : 0001),</li>
-                            <li><strong>round.type</strong> : Type de tournée : (BP : Boite Postale, CS : Course Speciale, TL : Tournée Lettre, TM : Tournée mixte : la tournée contient une partie Courrier et une partie Colis, TC : Tournée Courrier,  KI : Kiosque),</li>
+                            <li><strong>round.label</strong> : Type de tournée (BP : Boite Postale, CS : Course Speciale, TL : Tournée Lettre, TM : Tournée mixte : la tournée contient une partie Courrier et une partie Colis, TC : Tournée Courrier,  KI : Kiosque) avec son libellé (Ex : CS0001),</li>
                             <li><strong>round.rank</strong> : Rang de l'adresse dans la tournée (Ex : 3),</li>
                             <li><strong>address_ids.id</strong> : Identifiant d'adresse (cea) le plus fin identifié (Ex: 75118224SS),</li>
-                            <li><strong>address_ids.type</strong> : Type de l'identifiant d'adresse (address_ids.id) le plus fin trouvé : row3>row4_number>row4_road>row56 (Ex: row3),</li>
-                            <li><strong>address_ids.rowXX</strong> : Identifiant d'adresse (cea) de niveau rowXX.</li>
+                            <li><strong>address_ids.type</strong> : Type de l'identifiant d'adresse (address_ids.id) le plus fin trouvé : internal_service>cedex_id>row3>row4_number>row4_road>row56 (Ex: row3),</li>
+                            <li><strong>address_ids.rowX</strong> : Identifiants d'adresse (cea) de niveau rowX,</li>
+                            <li><strong>cabin_site.id</strong> : Identifiant REGATE du site de cabine (Ex: 752310),</li>
+                            <li><strong>cabin_site.id_roc</strong> : Identifiant <abbr title="Référentiel d'Organisation Courrier">ROC</abbr> du site de cabine (Ex: A21588).</li>
                         </ul>
                     </div>
                   </div>
                 </div>
 
                 <div class="col-lg-6 col-md-6">
+
                     <div id="file_error" class="bg-danger text-center collapse">
                         <br/><p>Votre traitement n'a pas pu être effectué :<br/> <span id="file_error_message" class="text-primary">Erreur serveur</span></p>
                         <p id="file_error_message_more">Veuillez réessayer plus tard. Notre exploitant est informé du problème.</p>
                         <button type="submit" class="btn btn-primary" id="file_error_new" >ReLancer un traitement</button>
                             <p><br/>Donnez <a href="http://bit.ly/APIQADR_votre_avis_web">votre avis</a> sur le service</p><br/>
                     </div>
-                  
+
                     <div id="file_success" class="bg-success text-center collapse">
                         <br/><p>Votre demande de traitement a été envoyé avec l'identifiant :<br/> <span id="batch-uid">1234-12345-12345-12345</span></p>
                         <p>Vous allez recevoir le résultat du traitement par mail</p>
@@ -179,55 +186,29 @@
                         <p><br/>Donnez <a href="http://bit.ly/APIQADR_votre_avis_web">votre avis</a> sur le service</p><br/>
                     </div>
 
+                    <div id="file_success_local" class="bg-success text-center collapse">
+                        <br/><p>Votre traitement a été réalisé<span id="file_success_local_errors" class="collapse">,<b><span id="file_success_local_nbCSVLinesError"></span></b> erreurs</span>.</p>
+                        <p><button type="button" class="btn btn-primary" id="fileSaver">Sauvegarder le fichier</button> <button type="button" class="btn btn-primary collapse" id="fileMap">Cartographier</button><br/>
+                        <p><button type="submit" class="btn btn-primary" id="file_success_new2">ReLancer un traitement</button></p>
+                        <p>Donnez <a href="http://bit.ly/APIQADR_votre_avis_web">votre avis</a> sur le service</p><br/>
+                    </div>
+
                     <div id="file_transfer" class="bg-success text-center collapse">
                         <br/><p>Envoi de la demande en cours.</p>
                         <p>Ne fermez pas le navigateur.</p>
                         <!--<button type="submit" class="btn btn-primary" id="file_error_new">ReLancer un traitement</button>-->
                         <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br/><br/>
+                        <div id="file_transfer_state" class="collapse">
+                            <div>Traitement <span id="nbCSVLinesProcessed"></span> sur <span id="nbCSVLinesTotal"></span><span id="file_transfer_state_remaining_time"></span></div>
+                            <div class="progress" id="file_transfer_progress">
+                                <div class="progress-bar" id="file_transfer_state_progress_bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-primary" id="fileSaverPartial">Sauvegarder le fichier partiel</button><br/><br/>
+                        </div>
                     </div>
 
                     <form id="formFile" class="form-horizontal">
-                    <div class="form-group" id="form_group_file">
-                        <label for="file" class="col-sm-4 control-label">Fichier</label>
-                        <div class="col-sm-8">
-                            <div id="file_alert" class="alert alert-danger collapse" role="alert">
-                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                                <span class="sr-only">Erreur:</span>
-                                Veuillez saisir un fichier .csv
-                            </div>
-                            <input type="file" class="form-control" id="file">
-                            <p class="help-block">Fichiers d'adresses au format .csv</p>
-                        </div>
-                    </div>
-                    <div class="form-group" id="form_group_data_format">
-                        <label class="col-sm-4 control-label">Format du fichier</label>
-                        <div class="col-sm-8">
-                            <div class="radio">
-                            <label>
-                                <input type="radio" name="data_format" value=";;address_row1;address_row2;address_row3;address_row4;address_row5;postal_code;locality" checked>
-                                Format FSPlus (SANS colonne "Action")
-                            </label>
-                            </div>
-                            <div class="radio">
-                            <label>
-                                <input type="radio" name="data_format" value=";;;address_row1;address_row2;address_row3;address_row4;address_row5;postal_code;locality">
-                                Format FSPlus (AVEC colonne "Action")
-                            </label>
-                            </div>
-                            <div class="radio">
-                            <label>
-                                <input type="radio" name="data_format" value="">
-                                Format libre
-                            </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group collapse">
-                        <label for="csv_numeric_format" class="col-sm-4 control-label">Format de sortie</label>
-                        <div class="col-sm-8">
-                            <input type="text" id="csv_numeric_format" value="excel_string" />
-                        </div>
-                    </div>
                     <div class="form-group" id="form_group_notification_email">
                         <label for="notification_email" class="col-sm-4 control-label">Email</label>
                         <div class="col-sm-8">
@@ -240,25 +221,177 @@
                             <p class="help-block">Pour recevoir le résultat du traitement</p>
                         </div>
                     </div>
-                    <div class="form-group collapse">
-                        <label for="my_fields" class="col-sm-4 control-label">Champs retournés</label>
+
+                    <div class="form-group" id="form_group_file">
+                        <label for="file" class="col-sm-4 control-label">Fichier</label>
                         <div class="col-sm-8">
-                            <input type="text" id="my_fields" value="ALL" />
+
+                            <input type="file" class="form-control" id="file" onchange="retrieveDataFormat(this.files);" accept=".csv">
+                            <p class="help-block">Fichiers d'adresses au format .csv</p>
+                            <div id="file_alert" class="alert alert-danger collapse" role="alert">
+                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                <span class="sr-only">Erreur:</span>
+                                Veuillez saisir un fichier .csv
+                            </div>
+                            <div id="data_format_alert" class="alert alert-danger collapse" role="alert">
+                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                <span class="sr-only">Erreur:</span>
+                                Le format du fichier n'a pas été reconnu, vous devez renseignez le champ "Format du fichier (données)" dans "Plus d'options"
+                            </div>
+                            <div id="data_format_success" class="alert alert-success collapse" role="alert">
+                                Le format de votre fichier a été reconnu
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group collapse">
-                        <label for="params" class="col-sm-4 control-label">Informations retournées</label>
+                    <div class="form-group collapse" id="form_group_data_format_type">
+                        <label class="col-sm-4 control-label">Format du fichier</label>
                         <div class="col-sm-8">
-                            <select multiple class="form-control" id="params">
-                                <option selected value="deliverable">Adresse délivrable</option>
-                                <option selected value="distribution_site">Site de distribution (code roc, regate)</option>
-                                <option selected value="round">Tournée (identifiant, libellé, type, rang)</option>
-                                <option selected value="address_ids">Identifiants d'adresse</option>
+                            <div class="radio">
+                                <label>
+                                    <input disabled type="radio" id="data_format_fsplus1" name="data_format_type" value=";;address_row1;address_row2;address_row3;address_row4;address_row5;postal_code;locality" checked>
+                                    Format FSPlus (SANS colonne "Action")
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input disabled type="radio" id="data_format_fsplus2" name="data_format_type" value=";;;address_row1;address_row2;address_row3;address_row4;address_row5;postal_code;locality">
+                                    Format FSPlus (AVEC colonne "Action")
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input disabled type="radio" id="data_format_libre" name="data_format_type" value="">
+                                    Format libre
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group collapse" id="form_group_data_format">
+                        <label for="data_format" class="col-sm-4 control-label">Format du fichier (données)</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="data_format" value="" />
+                        </div>
+                    </div>
+
+                    <div class="form-group collapse" id="form_group_params">
+                        <label for="params" class="col-sm-4 control-label">Paramètres</label>
+                        <div class="col-sm-8">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="params" id="params_deliverable" value="deliverable">
+                                    Adresse délivrable
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input checked type="checkbox" name="params" id="params_distribution_site" value="distribution_site">
+                                    Site de distribution (code roc, regate, libellé)
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="params" id="params_distribution_site_detail" value="distribution_site_detail">
+                                    Site de distribution détaillé (code roc, regate, libellé, adresse)
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="params" id="params_round" value="round">
+                                    Tournée de référence (identifiant, libellé, rang)
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="params" id="params_address_ids" value="address_ids">
+                                    Identifiants d'adresse
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="params" id="params_cabin_site" value="cabin_site">
+                                    Site de cabine (code roc, regate)
+                                </label>
+                            </div>
+                            <div id="params_rnvp_label" class="checkbox collapse">
+                                <label>
+                                    <input type="checkbox" name="params" id="params_rnvp" value="rnvp" >
+                                    <abbr title="Redressement, Normalisation et Validation Postale">RNVP</abbr> (expérimental)
+                                </label>
+                            </div>
+                            <div id="params_geolocation_label" class="checkbox  collapse">
+                                <label>
+                                    <input type="checkbox" name="params" id="params_geolocation" value="geolocation" >
+                                    Géolocalisation (expérimental)
+                                </label>
+                            </div>
+                            <div id="params_address_reference_label" class="checkbox  collapse">
+                                <label>
+                                    <input type="checkbox" name="params" id="params_address_reference" value="address_reference" >
+                                    Adresse de référence (expérimental)
+                                </label>
+                            </div>
+                            <div id="params_ban_label" class="checkbox  collapse">
+                                <label>
+                                    <input type="checkbox" name="params" id="params_ban" value="ban" >
+                                    Adresse de la base d'adresses Nationale (expérimental)
+                                </label>
+                            </div>
+                            <div id="params_address_to_address_list_label" class="checkbox  collapse">
+                                <label>
+                                    <input type="checkbox" name="params" id="params_address_to_address_list" value="address_to_address_list" >
+                                    Liste d'adresses (expérimental)
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group collapse" id="form_group_my_fields">
+                        <label for="my_fields" class="col-sm-4 control-label">Champs retournés</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="my_fields" value="ALL" />
+                        </div>
+                    </div>
+                    <div class="form-group collapse" id="form_group_exclude">
+                        <label for="exclude" class="col-sm-4 control-label">Exclure les adresses sans distribution en face à face (Boîte Postale, Garde Courrier, Poste Restante)</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="exclude" value="distribution_office" />
+                        </div>
+                    </div>
+                    <div class="form-group collapse" id="form_group_csv_numeric_format">
+                        <label for="csv_numeric_format" class="col-sm-4 control-label">Echappement numérique Excel</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="csv_numeric_format" value="excel_string" />
+                        </div>
+                    </div>
+                    <div class="form-group collapse" id="form_group_remote_processing">
+                        <label for="remote_processing" class="col-sm-4 control-label">Traitement distant</label>
+                        <div class="col-sm-8">
+                            <input id="remote_processing" type="checkbox" checked>
+                        </div>
+                    </div>
+                    <div class="form-group collapse" id="form_group_field_delimiter_input">
+                        <label for="field_delimiter_input" class="col-sm-4 control-label">Séparateur <abbr title="Comma Separated Value">CSV</abbr></label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="field_delimiter_input" value=";" />
+                        </div>
+                    </div>
+                    <div class="form-group collapse" id="form_group_cors_parallel">
+                        <label for="cors_parallel" class="col-sm-4 control-label">NB parallel proxy <abbr title="Cross origin ressource sharing">CORS</abbr></label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="cors_parallel" value="1" />
+                        </div>
+                    </div>
+                    <div class="form-group collapse" id="form_group_offline">
+                        <label for="offline" class="col-sm-4 control-label">Bouchons</label>
+                        <div class="col-sm-8">
+                            <select multiple class="form-control" id="offline">
+                                <option id="offline_cpn" value="cpn">CPN</option>
+                                <option id="offline_orgate" value="orgate">Orgate</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-sm-offset-4 col-sm-8">
+                        <div id="more_options" class="col-sm-4 control-label cursor_pointer">Plus d'options <i class="fa fa-caret-right" id="more_options_icon"></i></div>
+                        <div class="col-sm-8">
                         <button type="submit" class="btn btn-primary" id="formFileSubmit">Lancer le traitement</button>
                         </div>
                     </div>
@@ -267,7 +400,49 @@
           </div>
         </div>
     </section>
-
+    <a name="mapLink"></a>
+    <section id="mapSection" class="bg-dark collapse">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Cartographie des données</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div id="map" style="width: 100%; height: 500px"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-left">
+                    <div id="map-selector" class="bg-dark" style="padding:10px;">
+                        <!-- Single button -->
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="display:inline;"><span id="map-selector-button">round.id</span> <span class="caret"></span>
+                            </button>
+                            <ul id="map-selector-items" class="dropdown-menu">
+                                <li>item1</li>
+                                <li>>Another action</li>
+                                <li>Something else here</li>
+                                <li>Separated link</li>
+                            </ul>
+                        </div>
+                        <div class="btn-group btn-group-lg" role="group" style="margin: 10px 10px 0 10px;">
+                            <ul id="map-selector-markers" class="list-inline">
+                                <li class="map-selector-marker"><i class="fa fa-circle" style="color:red" aria-hidden="true"></i> 75566662</li>
+                                <li class="map-selector-marker"><i class="fa fa-circle" style="color:red" aria-hidden="true"></i> 75566662</li>
+                                <li class="map-selector-marker"><i class="fa fa-circle" style="color:red" aria-hidden="true"></i> 75566662</li>
+                        </ul>
+                        </div>
+				    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section id="services" class="bg-primary">
         <div class="container">
             <div class="row">
@@ -302,10 +477,6 @@
             </div>
         </div>
     </section>
-
-
-    
-
     <section id="contact" class="bg-dark">
         <div class="container">
             <div class="row">
@@ -325,14 +496,37 @@
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
     <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
     <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
     <!-- Theme JavaScript -->
     <script src="js/creative.min.js"></script>
     <script src="js/main.js"></script>
-    
+
+    <!-- gestion asynchronisme -->
+    <script src="js/async.min.js"></script>
+
+    <!-- gestion Sauvegarde de fichier -->
+    <script src="js/FileSaver.min.js"></script>
+
+    <!-- gestion date/heure -->
+    <script src="js/moment.min.js"></script>
+    <script src="js/moment.fr.js"></script>
+
+    <!-- Leaflet -->
+    <script src="js/leaflet.js"></script>
+
+    <!-- conversion geolocalisation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.4.3/proj4.js" type="text/javascript"></script>
+    <script>
+        // Explicite
+        var google = proj4.Proj('EPSG:3857');
+        console.log(proj4(google, proj4.WGS84).forward([547672.211631362, 5804662.41094705]));
+
+        // Implicite (Comme les conversions Google <=> WGS 84 sont courantes, c'est inclut par défaut)
+        console.log(proj4(google).inverse([85286.417057415703, 4347668.9422677439]));
+    </script>
 
 </body>
 </html>
